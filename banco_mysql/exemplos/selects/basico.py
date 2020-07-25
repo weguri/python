@@ -1,4 +1,3 @@
-from configparser import Error
 from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
 
 try:
