@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"database": "${workspaceFolder:python}/banco_SQLite/bancos/pessoas.db",
+				"driver": "SQLite",
+				"name": "prof_neri",
+				"previewLimit": 50
+			}
+		]
+	}
+}

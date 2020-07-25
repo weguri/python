@@ -1,0 +1,13 @@
+root
+xs9d2m!13N@1p
+
+Alterar senha do Root
+ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'xs9d2m!13N@1p';
+
+
+connecting mysql/python
+Site https://dev.mysql.com/doc/connector-python/en/connector-python-example-connecting.html
+
+
+MySQL Workbench 8.0.20
+https://dev.mysql.com/downloads/workbench/
