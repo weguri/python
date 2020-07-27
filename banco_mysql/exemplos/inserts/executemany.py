@@ -1,5 +1,10 @@
 from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
 
+""" 
+executemany
+    No exemplo do insert ele convete o dicionario em um insert unico
+    Em vez de fazer quatro insert faz um unico sendo muito mais eficiente
+"""
 
 try:
     conn = ConexaoDB().conexao()
@@ -16,7 +21,10 @@ try:
 
     cursor.execute(tabelaSQL)
 
-    sql2 = """ insert into tmp_cliente(nome_tmp_cliente, idade_tmp_cliente) VALUES (%(nome)s, %(idade)s) """
+    sql2 = """
+insert into customer(name, age)
+VALUES (%s, %s)
+"""
 
     data_list = [
         {
