@@ -52,6 +52,7 @@ class Login:
             c.fetchone()
             if c.rowcount == 1:
                 self.status['text'] = "Acesso Aprovado"
+                self.master.destroy()
                 abrirSistemaPrincipal()
             else:
                 self.status['text'] = "Login ou senha inválido."

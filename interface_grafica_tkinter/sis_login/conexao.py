@@ -3,20 +3,42 @@ from mysql.connector import errorcode
 
 
 class ConexaoDB:
-    def __init__(self, banco="udemy_neri", userdb="root", passDB="xs9d2m!13N@1p", hostDB="127.0.0.1"):
+    def __init__(self, buffer=False, banco="udemy_neri", userDB="root", passDB="xs9d2m!13N@1p", hostDB="127.0.0.1"):
         self.banco = banco
-        self.userdb = userdb
+        self.userDB = userDB
         self.passDB = passDB
         self.hostDB = hostDB
 
-    def conexao(self):
+        # Indica se é necessário usar a interface pura do Python para o MySQL
+        # ou a extensão C que usa a biblioteca cliente do MySQL C:
+        # Padrão: False
+        self.use_puro = True
 
+        # avisos devem gerar exceções
+        # Padrão: False
+        self.avisos = True
+
+        # Ative o buffer para todos os objetos de cursor 
+        # Criados a partir de  esta conexão 
+        # Padrão: False
+        self.buffer = buffer
+
+        # todos os objetos de cursor criados a partir desta conexão serão brutos
+        # Padrão: False
+        self.bruto = True
+
+    def conexao(self):
         try:
-            conn = mysql.connector.connect(user=self.userdb,
+            conn = mysql.connector.connect(user=self.userDB,
                                            password=self.passDB,
                                            host=self.hostDB,
                                            database=self.banco,
-                                           use_pure=True)
+                                           use_pure=True,
+                                           raise_on_warnings=self.avisos,
+                                           raw=self.bruto,
+                                           buffered=self.buffer,
+                                           charset = 'utf8'
+                                        )
             return conn
 
         except mysql.connector.Error as err:

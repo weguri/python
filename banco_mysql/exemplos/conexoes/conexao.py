@@ -36,7 +36,8 @@ class ConexaoDB:
                                            use_pure=True,
                                            raise_on_warnings=self.avisos,
                                            raw=self.bruto,
-                                           buffered=self.buffer
+                                           buffered=self.buffer,
+                                           charset = 'utf8'
                                         )
             return conn
 
