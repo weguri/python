@@ -26,6 +26,7 @@ class App(Frame):
         print("hi. contents of entry is now ---->",
               self.contents.get())
 
+
 # crie o aplicativo
 myapp = App()
 

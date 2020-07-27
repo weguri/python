@@ -1,5 +1,4 @@
-from configparser import Error
-from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 
 """ 
 Passando valores por Dicionario

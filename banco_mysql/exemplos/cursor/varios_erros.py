@@ -1,5 +1,5 @@
 import mysql.connector
-from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 
 """ 
 Manipulando vários erros da mesma maneira

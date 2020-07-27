@@ -1,6 +1,6 @@
 from interface_grafica_tkinter.sis_login.tela_principal import abrirSistemaPrincipal
 from tkinter import messagebox
-from interface_grafica_tkinter.sis_login.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 import sys
 from tkinter import Button, Entry, Label
 

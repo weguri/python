@@ -1,5 +1,5 @@
 from mysql.connector import errors
-from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 
 """ 
 Por padrão, o MySQL.Connector/Python não gera uma exceção nos avisos.

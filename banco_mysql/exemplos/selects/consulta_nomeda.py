@@ -1,5 +1,5 @@
 import datetime
-from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 
 try:
     cn = ConexaoDB()

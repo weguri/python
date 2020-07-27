@@ -3,7 +3,7 @@ from mysql.connector import errorcode
 
 
 class ConexaoDB:
-    def __init__(self, buffer=False, banco="udemy_neri", userDB="root", passDB="xs9d2m!13N@1p", hostDB="127.0.0.1"):
+    def __init__(self, buffer=False, bruto=False, banco="udemy_neri", userDB="root", passDB="xs9d2m!13N@1p", hostDB="127.0.0.1"):
         self.banco = banco
         self.userDB = userDB
         self.passDB = passDB
@@ -25,7 +25,7 @@ class ConexaoDB:
 
         # todos os objetos de cursor criados a partir desta conexão serão brutos
         # Padrão: False
-        self.bruto = True
+        self.bruto = bruto
 
     def conexao(self):
         try:

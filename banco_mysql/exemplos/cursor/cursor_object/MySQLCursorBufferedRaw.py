@@ -1,4 +1,4 @@
-from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 
 """ 
 A MySQLCursorBufferedRaw classe cria um cursor em buffer bruto.

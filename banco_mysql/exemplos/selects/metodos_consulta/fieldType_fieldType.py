@@ -1,5 +1,5 @@
 from mysql.connector import FieldType
-from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 
 """ 
 Podemos obter o tipo real da coluna usando a FieldType classe A FieldType classe

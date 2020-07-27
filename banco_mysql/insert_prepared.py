@@ -1,5 +1,4 @@
 import mysql.connector
-from mysql.connector import Error
 
 dados = [
     ("Ivo", "ivo@teste.com", 65),

@@ -1,5 +1,13 @@
-from interface_grafica_tkinter.sis_login.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 from tkinter import *
+
+""" 
+Sistema para gerenciar - Clientes
+    Cadastra
+    Alterar
+    Excluir
+    Pesquisar
+"""
 
 
 def cadastraCliente():
@@ -48,8 +56,12 @@ def novoCliente():
 
 
 def pesquisarCliente():
+    """
+    Pesquisar pelo nome do cliente
+    """
     novoCliente()
     pesquisar = editpesquisa.get()
+
     sql = """ select * from clientes where 
                     nome_clientes like %s limit %s; """
     dados = (f"%{pesquisar}%", 1,)
@@ -74,6 +86,12 @@ def pesquisarCliente():
         labelStatus["text"] = err
 
 
+""" 
+
+Montar Tela de gerenciamento de cliente
+
+"""
+
 formeClientes = Tk()
 formeClientes.title("Cadastro de Clientes")
 
@@ -84,10 +102,12 @@ formeClientes.geometry("480x350+500+200")
 titulo = Label(formeClientes, text="Cadastro")
 titulo.grid(row=0, sticky=W+E+N+S, pady=5, padx=5)
 
+#
 # Linha para dividir o frame
 separa = Frame(height=2, bd=1, relief=SUNKEN)
 separa.grid(row=1, pady=5, stick=W+E+N+S, columnspan=4)
 
+#
 # Pesquisa
 labelpesquisa = Label(formeClientes, text="Pesquisar.:")
 labelpesquisa.grid(row=2, column=0, stick=W+E+N+S, pady=5, padx=5)
@@ -98,21 +118,25 @@ editpesquisa.grid(row=2, column=1, stick=W+E+N+S)
 btnPesquisa = Button(formeClientes, text="Pesquisar", command=pesquisarCliente)
 btnPesquisa.grid(row=2, column=3, padx=5)
 
+#
 # Linha para dividir o frame
 separa = Frame(height=2, bd=1, relief=SUNKEN)
 separa.grid(row=3, pady=10, stick=W+E+N+S, columnspan=4)
 
+#
 # Labels para exibir na tela
 labelNome = Label(formeClientes, text="Nome..:")  # , anchor=E
 labelFone = Label(formeClientes, text="Fone..:")  # , anchor=E
 labelEmail = Label(formeClientes, text="Email.:")  # , anchor=E
 labelStatus = Label(formeClientes, text="Status")
 
+#
 # Caixa de Entrada(input)
 editNome = Entry()
 editFone = Entry()
 editEmail = Entry()
 
+#
 # Posicionamento no formulário dos Labels e Edits de Pessoas
 labelNome.grid(row=4, sticky=W+E+N+S, padx=10)
 editNome.grid(row=4, column=1, sticky=W+E+N+S)
@@ -123,6 +147,7 @@ editFone.grid(row=5, column=1, sticky=W+E+N+S)
 labelEmail.grid(row=6, sticky=W+E+N+S, padx=10)
 editEmail.grid(row=6, column=1, sticky=W+E+N+S)
 
+#
 # Painel de Botões, para gerenciar Clientes
 frameBotao = Frame()
 botaoNovo = Button(frameBotao, text="Novo", command=novoCliente)
@@ -130,15 +155,18 @@ botaoGravar = Button(frameBotao, text="Gravar", command=cadastraCliente)
 botaoAlterar = Button(frameBotao, text="Alterar")
 botaoExcluir = Button(frameBotao, text="Excluir")
 
+#
 # Posicionar dentro do frame frameBotao
 botaoNovo.grid(row=1, column=0, pady=10, padx=2)
 botaoGravar.grid(row=1, column=1, pady=10, padx=2)
 botaoAlterar.grid(row=1, column=2, pady=10, padx=2)
 botaoExcluir.grid(row=1, column=3, pady=10, padx=2)
 
+#
 # posicionar o frameBotao dentro do formePessoas
 frameBotao.grid(row=7, column=1)
 
+#
 # Exibir o status
 labelStatus.grid(row=8, column=1, pady=10)
 

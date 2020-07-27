@@ -1,4 +1,4 @@
-from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 
 """ 
 Neste exemplo utilizando o buffered para obter as informações da tabela 

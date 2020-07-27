@@ -1,4 +1,4 @@
-from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 
 """ 
 Por padrão o objeto cursor converte automaticamente os tipos MySQL

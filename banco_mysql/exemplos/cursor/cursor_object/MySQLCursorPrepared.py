@@ -1,6 +1,6 @@
 import datetime
 import mysql.connector
-from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 
 """ 
 A MySQLCursorPrepared classe cria um cursor para 

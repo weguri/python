@@ -1,4 +1,4 @@
-from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 
 """ 
 executar a mesma consulta com um conjunto diferente de parâmetros. 

@@ -1,4 +1,4 @@
-from interface_grafica_tkinter.sis_login.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 from tkinter import *
 
 try:

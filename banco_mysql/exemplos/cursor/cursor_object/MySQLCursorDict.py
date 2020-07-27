@@ -1,4 +1,4 @@
-from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 
 """ 
 A MySQLCursorDict classe nos permite acessar linhas como dicionários, 

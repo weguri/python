@@ -1,4 +1,4 @@
-from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 
 """ 
 A MySQLCursorNamedTuple classe cria um cursor que retorna linhas como namedtuple.

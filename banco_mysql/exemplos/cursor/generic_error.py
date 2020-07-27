@@ -1,6 +1,6 @@
 import mysql.connector
 from mysql.connector import errorcode
-from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 
 """ 
 Exemplo 1: Manipulando o erro genérico

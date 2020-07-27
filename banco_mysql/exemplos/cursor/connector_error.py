@@ -1,5 +1,5 @@
 import mysql.connector
-from banco_mysql.exemplos.conexoes.conexao import ConexaoDB
+from include.conexao import ConexaoDB
 
 """ 
 Todas as classes de exceção para lidar com erros e avisos são 

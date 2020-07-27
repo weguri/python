@@ -1,9 +1,11 @@
 import tkinter as tk
 
+
 class Application(tk.Frame):
     """
     Exemplo basico do Tkinter
     """
+
     def __init__(self, master=None):
         super().__init__(master)
         self.master = master
@@ -22,6 +24,7 @@ class Application(tk.Frame):
 
     def digaOi(self):
         print("olá pessoal!")
+
 
 root = tk.Tk()
 app = Application(master=root)
