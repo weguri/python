@@ -9,6 +9,7 @@ try:
 
     """ 
     Se as informações não forem processadas antes do fechamento
+    
     Gera um erro
         Erro: Unread result found
     """

@@ -3,7 +3,17 @@ from mysql.connector import errorcode
 
 
 class ConexaoDB:
-    def __init__(self, buffer=False, bruto=False, banco="udemy_neri", userDB="root", passDB="xs9d2m!13N@1p", hostDB="127.0.0.1"):
+    def __init__(self, buffer=False, bruto=False, banco="udemy_neri", userDB="root", passDB="xs9d2m!13N@1p",
+                 hostDB="127.0.0.1"):
+        """
+        Construtor
+        :param buffer: False
+        :param bruto: False
+        :param banco: udemy_neri
+        :param userDB: root
+        :param passDB: xs9d2m!13N@1p
+        :param hostDB: 127.0.0.1
+        """
         self.banco = banco
         self.userDB = userDB
         self.passDB = passDB
@@ -18,12 +28,18 @@ class ConexaoDB:
         # Padrão: False
         self.avisos = True
 
-        # Ative o buffer para todos os objetos de cursor 
-        # Criados a partir de  esta conexão 
+        # Ative o buffer para todos os objetos de cursor
+        # Criados a partir de  esta conexão
         # Padrão: False
         self.buffer = buffer
 
         # todos os objetos de cursor criados a partir desta conexão serão brutos
+        # Caso o valor passado seja True então não se pode utilizar:
+        #   conn.cursor(prepared=True) - Pois gera erro
+        #
+        #   raw = True
+        #   .decode() - Nessesario quando o raw é verdadeiro na saida do result
+        #
         # Padrão: False
         self.bruto = bruto
 
@@ -37,8 +53,8 @@ class ConexaoDB:
                                            raise_on_warnings=self.avisos,
                                            raw=self.bruto,
                                            buffered=self.buffer,
-                                           charset = 'utf8'
-                                        )
+                                           charset='utf8'
+                                           )
             return conn
 
         except mysql.connector.Error as err:

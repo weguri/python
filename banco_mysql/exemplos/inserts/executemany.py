@@ -1,3 +1,4 @@
+import mysql.connector
 from include.conexao import ConexaoDB
 
 """ 
@@ -7,53 +8,70 @@ executemany
 """
 
 try:
-    conn = ConexaoDB().conexao()
-    cursor = conn.cursor()
+    db = ConexaoDB().conexao()
 
-    # Criar Tabela Temporária
-    tabelaSQL = """
-            create temporary table tmp_cliente(
-                id_tmp_cliente int AUTO_INCREMENT PRIMARY KEY,
-                nome_tmp_cliente VARCHAR(100) NOT NULL,
-                idade_tmp_cliente SMALLINT NOT NULL     
-            )
-        """
+    # return a buffered MySQLCursorNamedTuple
+    cursor = db.cursor(prepared=True)
 
-    cursor.execute(tabelaSQL)
+    sql1 = """
+    create temporary table tmp_clientes(
+        id_tmp_clientes int AUTO_INCREMENT PRIMARY KEY,
+        nome_tmp_clientes VARCHAR(100) NOT NULL,
+        idade_tmp_clientes SMALLINT NOT NULL     
+    )
+    """
 
+    # 
+    # Criar tabela temporaria
+    cursor.execute(sql1)
+
+    # 
+    # SQL para insert
     sql2 = """
-insert into customer(name, age)
-VALUES (%s, %s)
-"""
+    insert into tmp_clientes(nome_tmp_clientes, idade_tmp_clientes)
+    VALUES (%s, %s)
+    """
 
     data_list = [
-        {
-            'nome': 'João',
-            'idade': 45
-        },
-        {
-            'nome': 'Pedro',
-            'idade': 25
-        },
-        {
-            'nome': 'Maria',
-            'idade': 20
-        },
-        {
-            'nome': 'Antonio',
-            'idade': 34
-        },
+        ('John', 45),
+        ('Max', 25),
+        ('Jane', 20),
+        ('Bob', 34),
     ]
 
+    
     cursor.executemany(sql2, data_list)
 
-    print("Query:", cursor.statement)
-    print("Rowcount:", cursor.rowcount)  # rows inserted
+    db.commit()
 
-    conn.commit()
+    # 
+    # Numero de linhas inseridas
+    print("rowcount:", cursor.rowcount)
+    print(cursor)
 
-except Exception as err:
+    #
+    # Lista o resultado a saida
+    cursor.execute("select * from tmp_clientes")
+    for r in cursor:
+        print(r)
+
+
+#
+# Except de varios erros
+except (mysql.connector.IntegrityError, mysql.connector.DataError) as err:
+    print("IntegrityError or DataError")
     print(err)
+
+except mysql.connector.ProgrammingError as err:
+    print("ProgrammingError")
+    print(err.errno)
+    print(err.sqlstate)
+    print(err.msg)
+
+except mysql.connector.Error as err:
+    print("Error")
+    print(err)
+
 else:
     cursor.close()
-    conn.close()
+    db.close()

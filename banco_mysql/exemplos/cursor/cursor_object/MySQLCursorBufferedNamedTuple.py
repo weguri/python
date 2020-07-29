@@ -17,7 +17,8 @@ try:
     try:
         # Executar o SQL
         cursor.execute(
-            "SELECT nome_clientes, telefone_clientes FROM clientes order by nome_clientes LIMIT 1")
+            "SELECT nome_clientes, telefone_clientes "
+            "FROM clientes order by nome_clientes LIMIT %s", (2,))
 
         # rowcount iria exibir -1, SEM o buffer
         print("número de linhas (inicial):", cursor.rowcount, end="\n\n\n")
