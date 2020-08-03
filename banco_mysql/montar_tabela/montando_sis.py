@@ -9,6 +9,7 @@ TABLES["clientes"] = (
     " `nome_clientes` varchar(100) NOT NULL,"
     " `telefone_clientes` varchar(20) NOT NULL,"
     " `email_clientes` varchar(60) NOT NULL,"
+    " `aniversario_clientes` DATETIME NOT NULL,"
     " PRIMARY KEY (`id_clientes`)"
     ") ENGINE=InnoDB;"
 )

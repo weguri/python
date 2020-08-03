@@ -5,8 +5,8 @@ from tkinter import *
 
 """ 
 Sistema para gerenciar - Clientes
-    Cadastra
-    Alterar
+    Cadastra e Alterar: 
+        Nesta função as operações SQL insert e updadte
     Excluir
     Pesquisar
 """
@@ -14,27 +14,57 @@ Sistema para gerenciar - Clientes
 
 def cadastraCliente():
     """ 
-    Cadastrar novo cliente
+    Cadastrar
+        As ações Insert e Update
+        São realizadas na mesma função
     """
+    codigo = editCodigo.get()
+    codigo = 0 if codigo == "" else int(codigo)
+
     nome = editNome.get()
     fone = editFone.get()
     email = editEmail.get()
+
     if nome == "" or fone == "" or email == "":
         labelStatus["text"] = "Todos campos são obrigatório"
     else:
         try:
             conn = ConexaoDB().conexao()
-            c = conn.cursor(prepared=True)
+            cursor = conn.cursor()
 
-            dados = [(nome, fone, email)]
+            dados = {
+                "id": codigo,
+                "nome": nome,
+                "fone": fone,
+                "email": email
+            }
 
-            # Mondar SQL
-            strSQL = """ INSERT INTO clientes 
-                            (nome_clientes, telefone_clientes, email_clientes, aniversario) 
-                        VALUES (%s, %s, %s, NOW()); """
-            
-            c.executemany(strSQL, dados)
+            # Mondar INSERT com UPDATE
+            sql = """ INSERT INTO clientes (id_clientes, nome_clientes, telefone_clientes, email_clientes, aniversario_clientes) 
+                            VALUES (%(id)s, %(nome)s, %(fone)s, %(email)s, NOW()) 
+                            ON DUPLICATE KEY UPDATE 
+                                id_clientes = %(id)s, 
+                                nome_clientes = %(nome)s, 
+                                telefone_clientes = %(fone)s, 
+                                email_clientes = %(email)s;
+                    """
+
+            # print(dados)
+            # print(sql, "\n\n\n\n")
+
+            cursor.execute(sql, dados)
+
             conn.commit()
+
+            editCodigo.configure(state="normal")
+            editCodigo.delete(0, END)
+            editCodigo.insert(0, cursor.lastrowid)
+            editCodigo.configure(state="readonly")
+
+            botaoGravar.configure(state="disabled")
+            botaoAlterar.configure(state="normal")
+            botaoExcluir.configure(state="normal")
+
             labelStatus["text"] = "Gravado com sucesso!"
 
         #
@@ -53,16 +83,16 @@ def cadastraCliente():
             print("Error")
             print(err)
         else:
-            novoCliente()
-            c.close()
+            # novoCliente()
+            cursor.close()
             conn.close()
 
 
-def novoCliente():
+def novoCliente(codigo=0):
     """ 
     Para limpar as caixa de Texto
     """
-    editCodigo.configure(state="normal") # Para desbloquear a caixa de texto
+    editCodigo.configure(state="normal")  # Para desbloquear a caixa de texto
     editCodigo.delete(0, END)
     editCodigo.configure(state="readonly")
 
@@ -70,6 +100,14 @@ def novoCliente():
     editFone.delete(0, END)
     editEmail.delete(0, END)
     editNome.focus()
+
+    if codigo > 0:
+        botaoAlterar.configure(state="normal")
+        botaoExcluir.configure(state="normal")
+    else:
+        botaoGravar.configure(state="normal")
+        botaoAlterar.configure(state="disabled")
+        botaoExcluir.configure(state="disabled")
 
 
 def pesquisarCliente():
@@ -88,25 +126,32 @@ def pesquisarCliente():
 
         # Montar SQL
         cursor.execute("SELECT id_clientes, nome_clientes, telefone_clientes, email_clientes "
-                        "FROM clientes "
-                        "WHERE nome_clientes LIKE %s LIMIT %s;", (f"%{pesquisar}%", 1,))
-        
-        if cursor.rowcount > 0:
-            # Limpar Campos
-            labelStatus["text"] = ""
-            novoCliente()
-        else:
-            labelStatus["text"] = "Não existe"
+                       "FROM clientes "
+                       "WHERE nome_clientes LIKE %s LIMIT %s;", (f"%{pesquisar}%", 1,))
 
-        for row in cursor:
+        row = cursor.fetchone()
+
+        codigo = 0
+
+        if cursor.rowcount:
+            labelStatus["text"] = ""
+            codigo = row.id_clientes
+
+            novoCliente(codigo)
+
             editCodigo.configure(state="normal")
-            editCodigo.insert(0, row.id_clientes)
+            editCodigo.insert(0, codigo)
             editCodigo.configure(state="readonly")
 
             editNome.insert(0, row.nome_clientes)
             editFone.insert(0, row.telefone_clientes)
             editEmail.insert(0, row.email_clientes)
+        else:
+            labelStatus["text"] = "Não existe"
+            labelStatus["font"] = ("Arial", "16", "bold")
 
+        if codigo:
+            botaoGravar.configure(state="disabled")
 
     except Exception as err:
         labelStatus["text"] = "Ocorreu um erro, desculpe"
@@ -130,7 +175,7 @@ def excluirCliente():
         conn.commit()
 
         labelStatus["text"] = "registro deletado."
-        
+
         editpesquisa.delete(0, END)
 
         # Limpar Campos
@@ -139,41 +184,6 @@ def excluirCliente():
     except Exception as err:
         labelStatus["text"] = err
         print(err)
-    else:
-        cursor.close()
-        conn.close()
-
-
-def alterarCliente():
-    try:
-        conn = ConexaoDB().conexao()
-        cursor = conn.cursor()
-
-        sql = """ UPDATE 
-                clientes 
-            SET 
-                nome_clientes = %(nome)s,
-                telefone_clientes = %(fone)s, 
-                email_clientes = %(email)s 
-            WHERE 
-                id_clientes = %(id)s; """
-        
-        data_list = [
-            {
-                'nome': editNome.get(),
-                'fone': editFone.get(),
-                'email': editEmail.get(),
-                'id': editCodigo.get()
-            },
-        ]
-
-        cursor.executemany(sql, data_list)
-        conn.commit()
-
-        labelStatus["text"] = "Registro atualizado."
-
-    except Exception as err:
-        labelStatus["text"] = err
     else:
         cursor.close()
         conn.close()
@@ -250,7 +260,7 @@ editEmail.grid(row=7, column=1, sticky=W+E+N+S)
 frameBotao = Frame()
 botaoNovo = Button(frameBotao, text="Novo", command=novoCliente)
 botaoGravar = Button(frameBotao, text="Gravar", command=cadastraCliente)
-botaoAlterar = Button(frameBotao, text="Alterar", command=alterarCliente)
+botaoAlterar = Button(frameBotao, text="Alterar", command=cadastraCliente)
 botaoExcluir = Button(frameBotao, text="Excluir", command=excluirCliente)
 
 #
@@ -268,7 +278,7 @@ frameBotao.grid(row=8, column=1)
 # Exibir o status
 labelStatus.grid(row=9, column=1, pady=10)
 
-# 
+#
 # Carrega o primeiro do MySQL
 pesquisarCliente()
 

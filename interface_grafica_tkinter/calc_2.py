@@ -8,6 +8,7 @@ class App(Frame):
 
         self.btnNumericoCalc()
 
+    # Montar os BOTÔES da calculadora
     def btnNumericoCalc(self):
         self.edit = Entry(self.master)
         self.edit.grid(row=1, column=0)
@@ -17,9 +18,14 @@ class App(Frame):
 
         linha = 1
         coluna = 1
-
+        
+        # 
+        # Montar os botões, da calculadora
         for btn in botoes:
+            # 
+            # Criando uma FUNÇÂO LAMBDA
             def comando(x=btn): return self.calcular(x)
+
             self.botao = Button(self, text=btn, height="1", width="2",
                                 fg="black", bg="dark grey", command=comando).grid(row=linha, column=coluna)
             coluna += 1
@@ -27,6 +33,8 @@ class App(Frame):
                 linha += 1
                 coluna = 1
 
+    # 
+    # Função calcular
     def calcular(self, valorBtn):
         if valorBtn == "=":
             try:

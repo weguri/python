@@ -1,15 +1,18 @@
-# import sys
-# from PyQt5 import QtGui, QtCore
+import sys
 
-# class Main(QtGui.QWidget):
-#     def __init__(self, master=None):
-#         QtGui.QWidget.__init__(self, master)
-#         self.setGeometry(400, 300, 250, 250)
+from PyQt5.uic.properties import QtGui
 
-#         self.setWindowTitle("Titulo para exibir")
 
-# app = QtGui.QApplication(sys.argv)
-# programa = Main()
-# programa.show()
+class Main(QtGui.QWidget):
+    def __init__(self, master=None):
+        QtGui.QWidget.__init__(self, master)
+        self.setGeometry(400, 300, 250, 250)
 
-# sys.exit(app.exec_())
+        self.setWindowTitle("Titulo para exibir")
+
+
+app = QtGui.QApplication(sys.argv)
+programa = Main()
+programa.show()
+
+sys.exit(app.exec_())
