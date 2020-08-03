@@ -8,7 +8,7 @@ try:
 
     # Insert
     sql = "INSERT INTO pessoa VALUES "\
-        "(NULL, 'Weliton', 'guri@email.com'), "\
+        "(NULL, 'Segior', 'guri@email.com'), "\
         "(NULL, 'Maria', 'maria@email.com'), "\
         "(NULL, 'Ivo', 'ivo@email.com'), "\
         "(NULL, 'Gabi', 'gabi@email.com'), "\

@@ -32,7 +32,7 @@ try:
             'id': 3
         },
         {
-            'nome': "Ferreira Weliton",
+            'nome': "Silva Segior",
             'fone': "2345-2223",
             'email': 'teste@tes.com.br',
             'id': 1

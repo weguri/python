@@ -28,7 +28,7 @@ try:
             'id': 3
         },
         {
-            'nome': "Figueiredo Weliton",
+            'nome': "Sergio",
             'fone': "3331-2223",
             'email': 'saida@tes.com.br',
             'id': 1

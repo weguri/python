@@ -25,7 +25,7 @@ def mostrarTipos(info):
 
 tupla = ()
 
-print(mostrarTipos("Weliton"))
+print(mostrarTipos("Segior"))
 print(mostrarTipos(33))
 print(mostrarTipos(2.2))
 print(mostrarTipos({}))

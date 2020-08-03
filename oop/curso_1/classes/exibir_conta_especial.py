@@ -1,6 +1,6 @@
 from oop.classes import ContaEspecial as cbe
 
-cliente = cbe.ContaEspecial("Weliton", "2342-33", 1000.01, 2000.32)
+cliente = cbe.ContaEspecial("Segior", "2342-33", 1000.01, 2000.32)
 
 cliente.relatorio()
 

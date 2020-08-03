@@ -4,7 +4,7 @@ print(
 )
 
 print(
-    "Repitindo informação, {p}, outra {p}, mais uma {p}".format(p="WELITON")
+    "Repitindo informação, {p}, outra {p}, mais uma {p}".format(p="Segior")
 )
 
 print(

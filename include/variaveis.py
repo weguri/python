@@ -1,8 +1,8 @@
 import time
 import datetime
 
-primeiro_nome = "weliton"
-sobrenome = "ferreira figueiredo"
+primeiro_nome = "Segior"
+sobrenome = "Silva Machado"
 
 data_hora = datetime.datetime(1981, 10, 16, 18, 12, 9)
 

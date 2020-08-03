@@ -16,7 +16,7 @@ print(lista[:4])
 print(lista[3:])
 
 # A string seria um tipo de lista de caracteres
-print("Weliton Ferreira Figueiredo"[4:13])
+print("Segior Silva Machado"[4:13])
 
 # Retira a primeira e a ultima posição
 print(lista[1:-1])

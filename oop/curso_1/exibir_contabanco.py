@@ -1,6 +1,6 @@
-from oop.classes import ContaBanco as cb
+from oop.curso_1.classes import ContaBanco as cb
 
-cliente = cb.ContaBanco("Weliton", "2342-33", 1000.01)
+cliente = cb.ContaBanco("Segior", "2342-33", 1000.01)
 
 cliente.relatorio()
 
