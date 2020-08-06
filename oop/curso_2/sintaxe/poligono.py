@@ -1,9 +1,14 @@
 """ 
 Possibilidade de criar varias classes no mesmo arquivo
+Quando importa este arquivo é outro pode informar todas classes
+ou informa somente a classe que vai ser usada
 """
 
 
 class Quadrado:
+    """
+    Calcular a area do quadrado
+    """
     def __init__(self, lado):
         self.lado = lado
 
@@ -15,6 +20,9 @@ class Quadrado:
 
 
 class Retangulo:
+    """ 
+    Calcular area do retangulo
+    """
     def __init__(self, base, altura):
         self.base = base
         self.altura = altura

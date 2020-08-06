@@ -14,10 +14,14 @@ def tupla_par(tupla):
     # tuple - converte para uma tupla
     return tuple(lista)
 
-
-tupla_par(('oi', 'estou', 'estutando', 'python'))
-
+# 
 # Função simplificada
 def tupla_par1(tupla):
     return tupla[::2]
+
+# 
+# Forma de uso
+tupla_par(('oi', 'estou', 'estutando', 'python'))
+
+
 
