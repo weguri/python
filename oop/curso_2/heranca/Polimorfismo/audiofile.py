@@ -28,6 +28,9 @@ class OggFile(AudioFile):
 
 
 try:
+    """ 
+    Validação da extensão do arquivo é feito na Classe AudioFile
+    """
     mp3 = MP3File('musica.mp3')
     mp3.play()
 
