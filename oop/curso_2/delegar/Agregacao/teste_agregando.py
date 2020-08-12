@@ -1,11 +1,11 @@
 from oop.curso_2.delegar.Agregacao.cliente import Cliente
-from oop.curso_2.delegar.Agregacao.conta_agregacao import ContaAgregacao
+from oop.curso_2.delegar.Agregacao.conta import Conta
 
 # Criando a Instância do classe Cliente
 cliente = Cliente('Rodrigues', 'Oliveira', '11111222')
 
 # Agregação a classe cliente na Instância minha_conta
-minha_conta = ContaAgregacao('123-4', cliente, 120.0, 1000.0)
+minha_conta = Conta('123-4', cliente, 120.0, 1000.0)
 
 # Testar o exemplo
 
