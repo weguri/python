@@ -1,6 +1,6 @@
 import math
 
-from oop.curso_2.heranca.Polimorfismo.formageometrica.forma import Forma
+from oop.curso_2.Polimorfismo.formageometrica.forma import Forma
 
 
 class Circulo(Forma):

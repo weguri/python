@@ -1,5 +1,5 @@
-from oop.curso_2.heranca.Polimorfismo.formageometrica.circulo import Circulo
-from oop.curso_2.heranca.Polimorfismo.formageometrica.quadrado import Quadrado
+from oop.curso_2.Polimorfismo.formageometrica.circulo import Circulo
+from oop.curso_2.Polimorfismo.formageometrica.quadrado import Quadrado
 
 quad = Quadrado(2)
 print("Area: %d" % quad.area())
