@@ -1,11 +1,12 @@
 """ 
 Nota:
-    O index()método retorna apenas a primeira ocorrência do valor.
+    O index() método retorna a primeira ocorrência do valor.
 """
 
 lista = ["orange", "apple", "kiwi", "melon",
          "cherry", "banana", "mango", "cherry"]
 
-x = lista.index("cherry")
+prosicao = lista.index("cherry")
 
-print(x)
+print(prosicao)  # retorna a posição
+print(lista[prosicao])  # o valor da retorna

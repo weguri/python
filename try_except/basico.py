@@ -1,10 +1,30 @@
 """
-except
-    Caso não coloque nada na frente do except vai pegar todos erros 
-        Mais não tem como saber o que disparou o erro
+BaseException
+    Todas exceptions herdam nesta classe
+    Quando não se sabe o erro para se capturar
+    pode se utilizar desta classe
+
+    Exemplo:
+        except BaseException as er:
+            ou
+        except:
+    
+    Envez de usar somente except se deveria ultilizar 
+        except BaseException as er:
+
+Pode haver varios except 
+Estrutura:
+    try:
+        pass
+    except:
+        pass
+    else:
+        pass
+    finally:
+        pass
 """
 
 try:
     print(2 / 0)
-except ZeroDivisionError as ziro:
-    print("Erro:", ziro)
+except BaseException as err:
+    print("Erro:", err)

@@ -15,7 +15,7 @@ Existem vários métodos para remover itens de uma lista:
 
 """
 
-lista = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+lista = ["oxicoco", "maça", "kiwi", "melon", "abacaxi", "banana", "mango", "ananás"]
 
 lista.remove("banana")
 print(lista)

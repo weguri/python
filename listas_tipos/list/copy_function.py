@@ -7,11 +7,14 @@ lista = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
 
 # Faça uma cópia de uma lista com o copy() método:
 nova_lista = lista.copy()
+
 print(nova_lista)
 
 nova_lista.pop()
 nova_lista.pop()
 nova_lista.pop()
+
+print('-'*30)
 
 print(lista)
 print(nova_lista)

@@ -8,7 +8,7 @@ automaticamente também ser feitos em list2.
 
 lista = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
 
-lista_copiada = lista
+lista_copiada = lista  # referece a mesma posição da memoria
 
 print(lista)
 print(lista_copiada)
@@ -17,6 +17,8 @@ lista.pop()
 lista_copiada.pop()
 lista_copiada.pop()
 lista_copiada.pop()
+
+"""AS DUAS LISTAS FICAM IGUAIS"""
 
 print(lista)
 print(lista_copiada)

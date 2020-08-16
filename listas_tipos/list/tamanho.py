@@ -1,4 +1,12 @@
-lista = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "cherry", "mango"]
+"""
+len
+    pode ser utilizado para exibir o tamanho da lista
+
+count
+    Conta quantas vezes texto aparece dentro da lista
+"""
+
+lista = ["oxicoco", "maça", "kiwi", "melon", "abacaxi", "banana", "mango", "ananás"]
 
 print("len:", len(lista))
 

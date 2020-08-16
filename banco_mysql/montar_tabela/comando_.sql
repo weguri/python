@@ -1,6 +1,1 @@
-https://docs.python.org/3/tutorial/errors.html
-
-Sobre try e except
-
-
 ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'xs9d2m!13N@1p';
