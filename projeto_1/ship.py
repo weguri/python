@@ -10,7 +10,7 @@ class Ship:
         self.screen = screen
 
         # Carrega a imagem da espaçonave e obtém seu rect
-        self.image = pygame.image.load(os.getcwd() + '/projeto_1/images/ship.bmp')
+        self.image = pygame.image.load(os.getcwd() + '/images/ship.bmp')
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
 
