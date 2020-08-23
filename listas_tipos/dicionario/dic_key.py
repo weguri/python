@@ -1,11 +1,11 @@
-d = {'jose': 22, 'roberto': 10, 'felipe': 44, 'julio': 1}
+dic_nomes = {'jose': 22, 'roberto': 10, 'felipe': 44, 'julio': 1}
 
 # Retorno: dict_keys(['jose', 'roberto', 'felipe', 'julio'])
 print(
-    d.keys()
+    dic_nomes.keys()
 )
 
 print('-' * 30)
 
-for c in d.keys():
+for c in dic_nomes.keys():
     print(c)

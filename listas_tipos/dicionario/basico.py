@@ -9,7 +9,7 @@ Dicionario
 """
 
 d = dict()
-# print(d) # retorna: {}
+# print(type(d))  # retorna: <class 'dict'>
 d['jose'] = 22
 d['roberto'] = 10
 

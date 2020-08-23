@@ -19,3 +19,9 @@ carros = {
 # Retorna valor da posição que foi removida
 s = carros.pop("cor")
 print(s)
+
+print(
+    "-" * 30,
+    carros,
+    sep="\n"
+)

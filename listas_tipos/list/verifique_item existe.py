@@ -8,16 +8,21 @@ not in
 
 frutas = ["oxicoco", "maça", "kiwi", "melon", "abacaxi", "banana", "mango", "ananás"]
 
-# Verificando com in
-#
+print("Verificando com in")
 if "banana" in frutas:
     print("Fruta: Banana")
 else:
     print("Não existe")
 
-#
-# not in
+print("\nVerificando com not in")
 if "banana" not in frutas:
     print("Verdadeiro")
 else:
     print("Não existe")
+
+print("\nVerificando se esta vazia")
+lista_vazia = []
+if lista_vazia:
+    print("Não esta vazia")
+else:
+    print("Lista vazia")

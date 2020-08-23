@@ -15,7 +15,6 @@ while True:
 
     minha_pesquisa.armazenar_resposta(resposta)
 
-
 # Exibe os resultados da pesquisa
 print('\nObrigado a todos que participaram da pesquisa')
 minha_pesquisa.mostra_resultado()

@@ -7,5 +7,6 @@ print(
 
 print('-' * 30)
 
+# Usar o método values() para retornar valores de um dicionário:
 for v in d.values():
     print(v)

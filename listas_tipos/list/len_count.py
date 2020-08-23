@@ -8,6 +8,7 @@ count
 
 lista = ["oxicoco", "maça", "kiwi", "melon", "abacaxi", "banana", "mango", "ananás"]
 
+
 print("len:", len(lista))
 
 # Retorna o número de elementos com o valor especificado

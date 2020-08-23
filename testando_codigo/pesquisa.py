@@ -17,5 +17,6 @@ class PesquisaAnonima:
     def mostra_resultado(self):
         """ Mostra todas as respostas dadas """
         print('Resultado da pesquisa:')
-        for resposta in self.respostas:
-            print(f'- {resposta}')
+        for resposta in sorted(self.respostas):
+            # num = self.respostas.count(resposta)
+            print(f'\t- {resposta}')

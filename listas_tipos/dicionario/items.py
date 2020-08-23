@@ -1,11 +1,12 @@
-d = {'jose': 22, 'roberto': 10, 'felipe': 44, 'julio': 1}
+dic_nomes = {'jose': 22, 'roberto': 10, 'felipe': 44, 'julio': 1}
 
 # Retorno: dict_items([('jose', 22), ('roberto', 10), ('felipe', 44), ('julio', 1)])
 print(
-    d.items()
+    dic_nomes.items()
 )
 
 print('-' * 30)
 
-for (c, v) in d.items():
-    print(c, v)
+# Loop através de chaves e valores, usando o método items():
+for chave, valor in dic_nomes.items():
+    print(chave.title(), valor)

@@ -5,6 +5,6 @@ exibir = print
 
 exibir("Frase para teste", end="\n")
 
-exibir('T','E','X','T', sep=".")
+exibir('T', 'E', 'X', 'T', sep=".")
 
 exibir('Numero: %s' % 22)
